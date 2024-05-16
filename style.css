@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
+
+@font-face {
+    font-family: 'Tektur';
+    src: url('./assets/fonts/Tektur-VariableFont_wdth\,wght.ttf');
+}
+
+/* L'étoile donne du style à TOUS les éléments */
+/* * {
+    margin: 0;
+    padding: 0;
+    border: 2px solid red;
+} */
+
+body {
+    font-family: "Tektur", Verdana, Geneva, Tahoma, sans-serif;
+    background: url(./assets/img/bg.jpg) center/cover;
+    /* VH = 100% de la taille de l'écran (viewport height) */
+    min-height: 100vh;
+}
+
+/* Apparence d'un texte */
+h1 {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+    /* Les tailles de polices doivent être en rem */
+    font-size: 2.5rem;
+    text-shadow: 5px 5px 4px #0000007a;
+    font-family: 'Bungee Spice', sans-serif;
+}
+
+/* De quoi faire une boite */
+main {
+    min-height: 500px;
+    width: 90%;
+    background: rgb(217 205 205 / 70%);
+    /* Center une boite */
+    margin: 0 auto;
+    border: 2px solid rgb(231, 56, 12);
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0px 0px 20px 10px #85421b;
+    padding: 15px;
+}
+
+h2 {
+    margin: 0;
+}
+
+/* Positionner une boite */
+.flexbox,
+.grid,
+.absolute {
+    border: 2px solid rgb(231, 56, 12);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+    min-height: 150px;
+}
+
+/* FLEXBOX */
+/* Sert à répartir équitablement des éléments sur la page */
+.flexbox ul {
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.flexbox li {
+    list-style: none;
+    height: 160px;
+    width: 160px;
+    margin: 10px;
+    background: #85421b;
+    /* Centrer un unique élément verticalement et horizontalement */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* GRID */
+.grid-container {
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+.grid img {
+    width: 80%;
+    margin-top: 20px;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+        "i1 i2"
+        "ta ta"
+        "vi bt";
+}
+
+input,
+textarea {
+    margin: 5px;
+    border: 1px solid orangered;
+    padding: 10px;
+    font-size: 1.1rem;
+    font-family: "Tektur", Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 5px;
+}
+
+textarea {
+    grid-area: ta;
+    height: 40px;
+    resize: none;
+}
+
+/* # pour les id et . pour les class */
+#btn-submit {
+    grid-area: bt;
+    cursor: pointer;
+    background: orangered;
+    transition: 0.2s;
+}
+
+#btn-submit:hover {
+    background: orange;
+    color: white;
+}
+
+/* ABSOLUTE */
+/* Sans élément en relative, de base, l'élément en absolute l'est par rapport au body */
+/* Il faut mettre une position relative au parent pour contraindre l'élément en absolute dans ses frontières */
+.absolute {
+    position: relative;
+}
+
+#circle1 {
+    height: 80px;
+    width: 80px;
+    background: orange;
+    position: absolute;
+    border-radius: 150px;
+    top: -20px;
+    right: -20px;
+}
+
+#circle2 {
+    height: 40px;
+    width: 40px;
+    border-radius: 150px;
+    background: orangered;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100px;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 966px) {
+    .grid-container {
+        display: block;
+    }
+
+    .grid-container img {
+        width: 40%;
+        margin: 20px auto;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .flexbox ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    form {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+            "i1"
+            "i2"
+            "ta"
+            "bt";
+    }
+
+    input,
+    textarea {
+        font-size: 0.8rem;
+    }
+}
