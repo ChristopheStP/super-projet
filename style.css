@@ -14,9 +14,13 @@
 
 body {
     font-family: "Tektur", Verdana, Geneva, Tahoma, sans-serif;
-    background: yellow;
+    background: salmon;
     /* VH = 100% de la taille de l'écran (viewport height) */
     min-height: 100vh;
+}
+
+nav {
+    padding: 40px 20px;
 }
 
 /* Apparence d'un texte */
