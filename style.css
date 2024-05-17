@@ -19,6 +19,10 @@ body {
     min-height: 100vh;
 }
 
+nav {
+    padding: 40px 20px;
+}
+
 /* Apparence d'un texte */
 h1 {
     text-transform: uppercase;
